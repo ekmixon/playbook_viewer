@@ -66,16 +66,16 @@ def process_file(fp):
             if bundle.get('type', '') == 'bundle' and bundle.get('spec_version', '') == '2.0':
                 process_playbook(pb, bundle)
             else:
-                print('{} - no valid stix 2.0 bundle found'.format(pb))
+                print(f'{pb} - no valid stix 2.0 bundle found')
         except Exception as e:
-            print('{} - could not parse json from file\n{}'.format(pb, e))
+            print(f'{pb} - could not parse json from file\n{e}')
 
 
 def main():
     if len(sys.argv) == 2:
         process_file(sys.argv[1])
     else:
-        print('error {} args given - use 1 arg (path to Playbook)'.format(len(sys.argv)))
+        print(f'error {len(sys.argv)} args given - use 1 arg (path to Playbook)')
 
 
 if __name__ == '__main__':
